@@ -3,11 +3,11 @@
     "baseUrl":"http://localhost:2368/ghost",
     "env":{
         "appName":"Ghost",
-        "user": "d.corzo@uniandes.edu.co",
+       "user": "d.corzo@uniandes.edu.co",
         "password": "46821973aD",
         "events":50,
         "delay":300,
-        "seed":1234,
+        "seed":1235,
         "pctClicks":19,
         "pctScroll":17,
         "pctSelectors":16,
