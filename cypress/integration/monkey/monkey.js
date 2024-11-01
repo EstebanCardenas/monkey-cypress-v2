@@ -13,7 +13,9 @@ const pct_scrolls = Cypress.env('pctScroll') || 17
 const pct_selectors = Cypress.env('pctSelectors') || 16
 const pct_keys = Cypress.env('pctKeys') || 16
 const pct_spkeys = Cypress.env('pctSpKeys') || 16
-const pct_pgnav = Cypress.env('pctPgNav') || 16 
+const pct_pgnav = Cypress.env('pctPgNav') || 16
+const user = Cypress.env('user') || "";
+const password = Cypress.env('password') || ""; 
 
 const LOG_FILENAME = "../../../results/monkey-execution.html"
 
@@ -541,7 +543,11 @@ describe( `${appName} under monkeys`, function() {
             pending_events[5] = events*pct_pgnav/100
             
             cy.visit(url).then((win)=>{   
-                let d = win.document
+                let d = win.document;
+                
+                cy.get('#identification').type(user);
+                cy.get('#password').type(password);
+
                 curPageMaxY = Math.max( d.body.scrollHeight, d.body.offsetHeight, d.documentElement.clientHeight, d.documentElement.scrollHeight, d.documentElement.offsetHeight) - win.innerHeight
                 curPageMaxX = Math.max( d.body.scrollWidth, d.body.offsetWidth, d.documentElement.clientWidth, d.documentElement.scrollWidth, d.documentElement.offsetWidth) - win.innerWidth
             })
